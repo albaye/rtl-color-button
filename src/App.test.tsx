@@ -39,5 +39,10 @@ test('disable checkbox after click', () => {
   fireEvent.click(checkbox);
 
   expect(button).toBeDisabled();
+  expect(button).toHaveStyle({ backgroundColor: 'gray' });
   expect(checkbox).toBeChecked();
+
+
+  fireEvent.click(checkbox);
+  expect(button).toHaveStyle({ backgroundColor: 'red' });
 })
