@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [buttonColor, setButtonColor] = useState('red')
+  const [disabled, setDisabled] = useState(false)
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red'
 
   const buttonHandler = () => {
@@ -11,8 +12,8 @@ function App() {
   }
   return (
     <div>
-      <button style={{ backgroundColor: buttonColor }} onClick={buttonHandler}>Change to {newButtonColor}</button>
-      <input type="checkbox" />
+      <button style={{ backgroundColor: buttonColor }} disabled={disabled} onClick={buttonHandler}>Change to {newButtonColor}</button>
+      <input type="checkbox" onChange={(e) => setDisabled(e.target.checked)} />
     </div>
   );
 }
