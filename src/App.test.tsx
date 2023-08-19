@@ -5,24 +5,24 @@ import App, { replaceCamelCase } from './App';
 test('button has correct initial color, and updates when clicked', () => {
   render(<App />);
   // find an element with a role of button and text of "Change to blue"
-  const colorButton = screen.getByRole('button', { name: "Change to blue" });
+  const colorButton = screen.getByRole('button', { name: "Change to MidnightBlue" });
 
   // expect the background color to be red
-  expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
+  expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 
   // click button
   fireEvent.click(colorButton);
 
   // expect the backgroun color to be blue
-  expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "MidnightBlue" });
 
-  expect(colorButton).toHaveTextContent("Change to red");
+  expect(colorButton).toHaveTextContent("Change to MediumVioletRed");
 });
 
 test('initial conditions', () => {
   render(<App />)
   // check that the button starts out enabled
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", { name: "Change to MidnightBlue" });
   expect(colorButton).toBeEnabled();
 
   // check that the checkbox start out unchecked
@@ -44,7 +44,7 @@ test('disable checkbox after click', () => {
 
 
   fireEvent.click(checkbox);
-  expect(button).toHaveStyle({ backgroundColor: 'red' });
+  expect(button).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 })
 
 describe("spaces before camel-case capital letters", () => {
