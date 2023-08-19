@@ -94,3 +94,7 @@ __Bad__
 BDD is very explicitly defined:
 - involves follaboration between lots of roles: developers, QA, business partners, ets
 - defines process for different groups to interact
+
+
+## Testing Library
+If you want to get an element from the page, but you are not sure about the role, you can use `logRoles` to get the roles of all the elements within a component.
