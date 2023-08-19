@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import App, { replaceCamelCase } from './App';
 
 test('button has correct initial color, and updates when clicked', () => {
   render(<App />);
@@ -45,4 +45,18 @@ test('disable checkbox after click', () => {
 
   fireEvent.click(checkbox);
   expect(button).toHaveStyle({ backgroundColor: 'red' });
+})
+
+describe("spaces before camel-case capital letters", () => {
+  test("works for no inner capital letters", () => {
+    expect(replaceCamelCase("Red")).toBe("Red")
+  });
+
+  test("works for one inner capital letter", () => {
+    expect(replaceCamelCase("MidnightBlue")).toBe("Midnight Blue")
+  });
+
+  test("works for multiple inner capital letters", () => {
+    expect(replaceCamelCase("MediumVioletRed")).toBe("Medium Violet Red")
+  });
 })
